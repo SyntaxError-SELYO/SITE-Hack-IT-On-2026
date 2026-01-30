@@ -1,0 +1,350 @@
+/* ===========================================
+   USTP SELYO Auth Page - Standard Design
+   =========================================== */
+
+/* Full Page Layout */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #1a2e44;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Split Background */
+.auth-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    z-index: 0;
+}
+
+.auth-bg-left,
+.auth-bg-right {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.auth-bg-left {
+    background-image: url('/campus-bg.png');
+    background-position: left center;
+}
+
+.auth-bg-right {
+    background-image: url('/campus-bg.png');
+    background-position: right center;
+}
+
+.auth-bg-left::after,
+.auth-bg-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 46, 68, 0.75);
+    /* Blue overlay */
+}
+
+/* Top Bar with Logos */
+.auth-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    z-index: 10;
+}
+
+.auth-logo-left .selyo-logo {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Card Header Logo */
+.card-header-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.ustp-logo-card {
+    height: 90px;
+    width: 90px;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    border: 3px solid #f39c12;
+    /* Selyo Orange Border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Card - Standard White */
+.auth-card {
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    padding: 40px 45px;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-card h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a2e44;
+    margin-bottom: 28px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Role Tabs */
+.role-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.role-tab {
+    flex: 1;
+    padding: 10px 16px;
+    background: #f1f5f9;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.role-tab:hover {
+    background: #e2e8f0;
+    color: #1a2e44;
+}
+
+.role-tab.active {
+    background: #fff;
+    border-color: #f39c12;
+    color: #1a2e44;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f39c12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 48px;
+    font-size: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #1a2e44;
+    transition: all 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.15);
+    background: #fff;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* Remember Me */
+.remember-row {
+    margin-bottom: 20px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #f39c12;
+    cursor: pointer;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e9f0;
+}
+
+.auth-footer p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.auth-footer a {
+    color: #f39c12;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Alert */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.alert-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-top-bar {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ustp-logo {
+        height: 50px;
+    }
+
+    .auth-card {
+        margin: 100px 20px 20px;
+        padding: 30px 25px;
+    }
+
+    .auth-bg-left {
+        display: none;
+    }
+
+    .auth-bg-right {
+        flex: 1;
+    }
+}
+
+/* Register Styles */
+.register-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 500px) {
+    .register-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-select {
+    width: 100%;
+    padding: 14px 14px 14px 48px;
+    font-size: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #1a2e44;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #f39c12;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.15);
+}
+
+.form-select option {
+    background: #fff;
+    color: #1a2e44;
+}
